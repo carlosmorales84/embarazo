@@ -1,0 +1,34 @@
+{
+    "org.apache.cordova.camera": {
+        "source": {
+            "type": "registry",
+            "id": "org.apache.cordova.camera"
+        }
+    },
+    "org.apache.cordova.contacts": {
+        "source": {
+            "type": "registry",
+            "id": "org.apache.cordova.contacts"
+        }
+    },
+    "org.apache.cordova.media": {
+        "source": {
+            "type": "registry",
+            "id": "org.apache.cordova.media"
+        }
+    },
+    "org.apache.cordova.file": {
+        "source": {
+            "type": "registry",
+            "id": "org.apache.cordova.file"
+        },
+        "is_top_level": false,
+        "variables": {}
+    },
+    "org.apache.cordova.media-capture": {
+        "source": {
+            "type": "registry",
+            "id": "org.apache.cordova.media-capture"
+        }
+    }
+}

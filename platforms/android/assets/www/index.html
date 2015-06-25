@@ -1,0 +1,964 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="msapplication-tap-highlight" content="no" />
+        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <link rel="stylesheet" type="text/css" href="css/index.css" />
+        
+
+            
+          <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+          <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+          <script src="//code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+          
+          <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+          <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+        
+        
+        <title>Carlos morales</title>
+    </head>
+    <body onload="cargartodo();">
+     
+     
+     
+     <!-- login  -->
+       <div id="login" data-role="page">
+        <div role="main" class="ui-content">   
+        <div>
+          <div class="page-header"> 
+            <h1>the story of my baby!<small> by Carlos Morales</small></h1>
+          </div>
+          </br>
+          </br>
+            
+               <div class="btn-group btn-group-justified" role="group" aria-label="..." >
+                <div class="btn-group" role="group">
+                  <!--<button type="button" class="btn btn-success btn-lg" id="btnlogin">Login</button>-->
+                  <P ALIGN="center">
+                  <a href="#" class="btn btn-warning btn-lg" id="btnlogin">Login</a>
+                  </P>
+                </div>
+                <div class="btn-group" role="group">
+                  <!--<button type="button" class="btn btn-info btn-lg" id="btnreg">Registrar</button>-->
+                  <P ALIGN="center">
+                  <a href="#" class="btn btn-info btn-lg" id="btnreg">Registrar</a>
+                  </P>
+                </div>
+              </div>
+               </br>
+               </br>
+                    <div id="entrada" style="display:none;">
+                    <input type="text" class="form-control" placeholder="Usuario" id="user">
+                    <input type="text" class="form-control" placeholder="password" id="pass">
+                    <!--<button class="btn btn-default" type="button" id="btnentrar">Entrar</button>-->
+                     <P ALIGN="center"><a href="#" class="btn btn-success btn-lg" id="btnentrar">Entrar</a></P>
+                     <P ALIGN="center"><a href="#" class="btn btn-danger btn-lg" id="btncancel">cancelar</a></P>
+                    </div>
+                    
+                    
+                    <div id="registro" style="display:none;">
+                    <input type="text" class="form-control" placeholder="Usuario" id="ruser">
+                    <input type="text" class="form-control" placeholder="password" id="rpass">
+                    <!--<button class="btn btn-default" type="button" id="btnregistrar">Registrar!</button>-->
+                    <P ALIGN="center"><a href="#" class="btn btn-success btn-lg" id="btnregistrar">Registrar!</a></P>
+                    <P ALIGN="center"><a href="#" class="btn btn-danger btn-lg" id="btncancel">cancelar</a></P>
+                    </div>
+                    
+   
+               
+          </br> </br> </br> </br>
+          <P ALIGN="center"><IMG SRC="img/embarazo.jpg" WIDTH="450" HEIGHT="325" BORDER="2"></P>
+        </div>
+          <!--<a class="ui-btn" href="#NewPage">Button</a>-->
+        </div>
+      </div>
+       
+       
+       
+    <!-- principal  -->
+      <div id="pgprincipal" data-role="page" is="pgprincipal" class="panel panel-primary">
+        <div role="main" class="ui-content" is="content">
+            <a class="ui-btn" href="#login">Cerrar sesion</a>
+            
+            
+            <P ALIGN="center"><IMG id="inicio" SRC="img/sig.jpg" WIDTH="350" HEIGHT="225" BORDER="2" ></P>
+            
+            <div>
+            <!--<button type="button" class="btn btn-success btn-lg" id="btnaumento">aumentar</button>-->
+            <button type="button" class="btn btn-info btn-lg" id="btnnuevo">agregar nuevo registro</button>
+            </div>
+            
+            </br>
+            
+            <div>
+            <P ALIGN="center"><a href="#" class="btn btn-info btn-lg" id="btnver">Ver registros!</a></P>
+            </div>
+            
+            <div>
+            <div class="alert alert-warning" role="alert">Bebe en proceso</div> 
+             </div>
+            
+                <div class="progress">
+                  <div id="barra" class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%">
+                  </div>
+                </div>
+                
+                
+            <div>
+            <input type="text" class="form-control" placeholder="Buscar contacto" id="nombrepersona">
+            <P ALIGN="left"><a href="#" class="btn btn-info btn-lg" id="btncontacto">buscar contacto</a></P>
+            </div>
+              
+      </div>
+      </div>
+  
+  
+  
+     <!--  nuevo registro  -->
+      <div id="pgnuevoregistro" data-role="page" is="pgnuevoregistro" >
+        <div role="main" class="ui-content" is="content">
+            <a class="ui-btn" href="#pgprincipal">regresar</a>
+            
+             <div>
+                <p ALIGN="center"><a href="#" class="btn btn-info btn-lg" id="btnfoto">Capturar foto</a></p>
+                <P ALIGN="center"><IMG id="photo" SRC="img/foto bebe.jpg" WIDTH="350" HEIGHT="225" BORDER="2" ></P>
+                <textarea cols="40" rows="18" name="textarea-6" id="textofoto" placeholder="agregue descripcion de la foto"></textarea>
+             </div>
+             
+                <div>
+                <P ALIGN="center"><a href="#" class="btn btn-warning btn-lg" id="btnaudio">Grabar nota de voz</a></P>
+                <P ALIGN="center"><IMG id="notasvoz" SRC="img/mic.gif" WIDTH="350" HEIGHT="225" BORDER="2" ></P>
+                <a href="#" id="btnrepaudio" name="" style="display:none;" >reproducir audio </a>
+                </div>
+              
+              
+                <div>
+                <P ALIGN="center"><a href="#" class="btn btn-success btn-lg" id="btnguardarr">Guardar registro</a></P>
+                 <!--<P ALIGN="center"><a href="#" class="btn btn-success btn-lg" id="btnmo">ver</a></P>-->
+                </div>
+      
+      </div>
+      </div>
+         
+     
+     
+   
+   
+     
+     
+     <!--  mostrar registros  -->
+      <div id="pgmostrarreg" data-role="page" is="pgmostrarreg" >
+        <div role="main" class="ui-content" is="content">
+            <a class="ui-btn" href="#pgprincipal">regresar</a>
+            </br>
+            <div class="alert alert-info" role="alert">Elige el mes para ver tus registros!</div>
+            
+                
+                <div class="list-group" id="listado">
+                <a href="#pg1" class="list-group-item list-group-item-warning" class="list-group-item active"><div id="pr">Primer mes</div></a>
+                <a href="#pg2" class="list-group-item list-group-item-warning" ><div id="se">Segundo mes</div></a>
+                <a href="#pg3" class="list-group-item list-group-item-warning" ><div id="te">Tercer mes</div></a>
+                <a href="#pg4" class="list-group-item list-group-item-warning" ><div id="cu">Cuarto mes</div></a>
+                <a href="#pg5" class="list-group-item list-group-item-warning" ><div id="qu">Quinto mes</div></a>
+                <a href="#pg6" class="list-group-item list-group-item-warning" ><div id="se">Sexto mes</div></a>
+                <a href="#pg7" class="list-group-item list-group-item-warning" ><div id="sep">Septimo mes</div></a>
+                <a href="#pg8" class="list-group-item list-group-item-warning" ><div id="oc">Octavo mes</div></a>
+                <a href="#pg9" class="list-group-item list-group-item-warning" ><div id="no">Noveno mes</div></a>
+               <!-- <a href="#" class="list-group-item list-group-item-warning">febrero</a>
+                <a href="#" class="list-group-item list-group-item-warning">marzo</a>-->
+              </div>
+                
+                
+            <P ALIGN="center"><IMG SRC="img/calen.jpg" WIDTH="450" HEIGHT="325" BORDER="2"></P>
+             
+              
+      
+      </div>
+      </div>
+     
+
+<!-- PAGINA 1  -->
+      <div id="pg1" data-role="page" is="pg1">
+        <div role="main" class="ui-content" is="content">
+            <a class="ui-btn" href="#pgmostrarreg">Atras</a>
+            </br>
+             <div>
+             <div class="alert alert-info" role="alert">Primer Mes!</div>  
+            <P ALIGN="center"><a href="#" class="btn btn-warning btn-lg" id="btnpg1">Refrescar valores</a></P>
+            
+    
+            
+            <div><ul id="lista1mes"></ul></div>
+        </div>
+      </div>
+    </div>
+      
+<!-- PAGINA 2  -->
+      <div id="pg2" data-role="page" is="pg2">
+        <div role="main" class="ui-content" is="content">
+            <a class="ui-btn" href="#pgmostrarreg">Atras</a>
+            </br>
+             <div>
+             <div class="alert alert-info" role="alert">Segundo Mes!</div>    
+            
+        </div>
+      </div>
+    </div>
+      
+<!-- PAGINA 3  -->
+      <div id="pg3" data-role="page" is="pg3">
+        <div role="main" class="ui-content" is="content">
+            <a class="ui-btn" href="#pgmostrarreg">Atras</a>
+            </br>
+             <div>
+             <div class="alert alert-info" role="alert">Tercer Mes!</div>    
+            
+        </div>
+      </div>
+    </div>
+      
+<!-- PAGINA 4  -->
+      <div id="pg4" data-role="page" is="pg4">
+        <div role="main" class="ui-content" is="content">
+            <a class="ui-btn" href="#pgmostrarreg">Atras</a>
+            </br>
+             <div>
+            <div class="alert alert-info" role="alert">Cuarto Mes!</div>     
+            
+        </div>
+      </div>
+    </div>
+      
+<!-- PAGINA 5  -->
+      <div id="pg5" data-role="page" is="pg5">
+        <div role="main" class="ui-content" is="content">
+            <a class="ui-btn" href="#pgmostrarreg">Atras</a>
+            </br>
+             <div>
+            <div class="alert alert-info" role="alert">Quinto Mes!</div>     
+            
+        </div>
+      </div>
+    </div>
+      
+<!-- PAGINA 6  -->
+      <div id="pg6" data-role="page" is="pg6">
+        <div role="main" class="ui-content" is="content">
+            <a class="ui-btn" href="#pgmostrarreg">Atras</a>
+            </br>
+             <div>
+            <div class="alert alert-info" role="alert">Sexto Mes!</div>     
+            
+        </div>
+      </div>
+    </div>
+      
+      
+<!-- PAGINA 7  -->
+      <div id="pg7" data-role="page" is="pg7">
+        <div role="main" class="ui-content" is="content">
+            <a class="ui-btn" href="#pgmostrarreg">Atras</a>
+            </br>
+             <div>
+             <div class="alert alert-info" role="alert">Septimo Mes!</div>    
+            
+        </div>
+      </div>
+    </div>
+      
+      
+<!-- PAGINA 8  -->
+      <div id="pg8" data-role="page" is="pg8">
+        <div role="main" class="ui-content" is="content">
+            <a class="ui-btn" href="#pgmostrarreg">Atras</a>
+            </br>
+             <div>
+              <div class="alert alert-info" role="alert">Octavo Mes!</div>   
+            
+        </div>
+      </div>
+    </div>
+      
+      
+<!-- PAGINA 9  -->
+      <div id="pg9" data-role="page" is="pg9">
+        <div role="main" class="ui-content" is="content">
+            <a class="ui-btn" href="#pgmostrarreg">Atras</a>
+            </br>
+             <div>
+             <div class="alert alert-info" role="alert">Noveno Mes!</div>    
+            
+        </div>
+      </div>
+    </div>
+      
+
+    
+     
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+        
+        <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+        
+        <script type="text/javascript">
+            var usuarios=0;
+            var aum=0;
+            var aums="";
+            
+
+            var srcfoto="";
+            var contexto="";
+            var srcaudio="";
+            var registro='';
+            
+            var miFecha = new Date();
+            var fechac="";
+            
+            var user="";
+            var pass="";
+            var usernat="";
+            var coin=0;
+            var coincidencia=0;
+            
+            var guard="";
+            var mesmenor="";
+            var mesmenori=12;
+            var fechafull=0;
+            var mestramp="";
+            var namesong="";
+ 
+
+           
+             
+ //boton pagina 1          
+             $(document).on("click", "#btnpg1", function(evt) 
+            { 
+                       $("#lista1mes").empty();  
+                     for(var i=0, t=localStorage.length; i < t; i++) {
+                     var key = localStorage.key(i);
+         
+                    for(var ii=0, tt=usernat.length; ii < tt; ii++) {
+                      if ((key.charAt(ii))==usernat.charAt(ii)) {
+                         coin=coin+1;
+                      }
+
+                        }
+                        if (coin==usernat.length) { 
+                          //aqui encontro un registro para el usuario registrado
+                          //alert('Para la clave ' + key + ' el valor es: ' + localStorage[key]);
+                          
+                               var texto=localStorage[key];                     
+                               var registroob=JSON.parse(texto);
+//registro='{"fecha": "'+fechac+'"  , "foto": "'+srcfoto+'"  ,  "contexto":"'+contexto+'"  ,  "audio":"'+srcaudio+'" ,"fechafull":"'+miFecha+'"  ,"mes":"'+mestramp+'" }';
+                               if (registroob.mes==mesmenor) {
+                                   var vfecha=registroob.fecha;
+                                   var vfoto=registroob.foto;
+                                   var vtexto=registroob.contexto;
+                                   var vaudio=registroob.audio;
+                                   var vfecha2=registroob.fechafull;
+                                   var vmes=registroob.mes;
+                                   var vns=registroob.nombreaudio;
+                                   //alert("fecha: "+vfecha+"pic: "+vfoto+" texto: "+vtexto+" audio: "+vaudio); 
+                                   
+                                   //var itemg = '<li><img src="' + vfoto + '" style="width:300px;height:300px"/><div >' + $d.toUTCString() + '<br/>' + imageURI.substr(imageURI.lastIndexOf('/')+1) + '</div></li>';
+                                   //$("#lista1mes").append(itemg);
+                                   
+                                   //var items='<div class="panel panel-success"> <div class="panel-heading"><h3 class="panel-title">'+vfecha+'</h3></div><div class="panel-body">Panel content</div></div></li>'; F27AEE
+                                   //var items='<div class="panel panel-success"> <div class="panel-heading"><h3 class="panel-title">'+vfecha+'</h3></div><div class="panel-body">  <img src="' + vfoto + '" style="width:300px;height:300px"/></br><p  style="color:#F27AEE">Descripcion de la fotografia: <p>'+vtexto+'</p> </p>  </br>  <a href="#" id="btnrepaudio2" name="'+vaudio+'">reproducir '+vns+' </a> <div ></div></li>'; 
+                                  
+                                   var items='<div class="panel panel-success"> <div class="panel-heading"><h3 class="panel-title">'+vfecha+'</h3></div><div class="panel-body">  <img src="' + vfoto + '" style="width:300px;height:300px"/></br><p  style="color:#F27AEE">Descripcion de la fotografia: <p>'+vtexto+'</p> </p>  </br>  <a href="#" class="btn btn-info btn-lg" id="btnrepaudio2" name="'+vaudio+'">reproducir '+vns+' </a> <div ></div></li>';
+                                   
+                                   $("#lista1mes").append(items);
+                                    
+                               }
+                               }
+                               coin=0;
+                             }       
+            });            
+                       
+            
+//guardar registros           
+             $(document).on("click", "#btnguardarr", function(evt) 
+            {
+                coincidencia=0;
+                coin=0;
+                //srcfoto="imagen.jpg";
+                //contexto="hola que hace.txt";
+                contexto=document.getElementById('textofoto').value;
+                //srcaudio="audio.mp3"
+                srcaudio=path2;
+                registro=registro+"1";
+                fechac=(miFecha.getDate() +"/"+((parseInt(miFecha.getMonth())+1).toString())+"/" + miFecha.getFullYear());
+                mestramp=(parseInt(miFecha.getMonth())+1).toString();
+                //alert(mestramp);
+                registro='{"fecha": "'+fechac+'"  , "foto": "'+srcfoto+'"  ,  "contexto":"'+contexto+'"  ,  "audio":"'+srcaudio+'" , "nombreaudio":"'+namesong+'" ,"fechafull":"'+miFecha+'"  ,"mes":"'+mestramp+'" }';
+                alert('datos guardados correctamente');
+                //alert("usuario: "+usernat);
+                //alert(usernat.length);
+                
+                
+                          //  for(var i=0, t=usernat.length; i < t; i++) {
+                          //  alert(usernat.charAt(i));
+                          //}
+                        for(var i=0, t=localStorage.length; i < t; i++) {
+                            
+                         var key = localStorage.key(i);
+                            for(var ii=0, tt=usernat.length; ii < tt; ii++) {
+                              if ((key.charAt(ii))==usernat.charAt(ii)) {
+                                 //alert('coincidencia '+localStorage.key(i));
+                                 coin=coin+1;
+                              }
+                             //alert(coin);
+                          }
+                          if (coin==usernat.length) {
+                            //aqui encontro un registro
+                            coincidencia=coincidencia+1;
+                          }
+                          coin=0;
+                          
+                          
+                        }
+                    //alert(coincidencia);
+                    coincidencia=coincidencia+1;
+                        //alert(usernat+" "+coincidencia);
+                        guard=usernat+coincidencia;
+                        //alert(guard+ " "+registro);
+                    localStorage.setItem(guard,registro);
+                        //alert("coincidencias: "+coincidencia);
+                         $(location).attr('href', "#pgprincipal");
+                         incrementobarra();
+                        
+                        
+                        
+                        
+            });
+
+ 
+ 
+ 
+//funcion que obtiene el menor mes
+function menormes() {
+   for(var i=0, t=localStorage.length; i < t; i++) {
+        var key = localStorage.key(i);
+         //alert('Para la clave ' + key + ' el valor es: ' + localStorage[key]);
+           for(var ii=0, tt=usernat.length; ii < tt; ii++) {
+             if ((key.charAt(ii))==usernat.charAt(ii)) {
+                //alert('coincidencia '+localStorage.key(i));
+                coin=coin+1;
+             }
+
+         }
+         if (coin==usernat.length) { 
+           //aqui encontro un registro
+           //coincidencia=coincidencia+1;
+           //alert('Para la clave ' + key + ' el valor es: ' + localStorage[key]);
+           
+            
+                var texto=localStorage[key];                     
+                var registroob=JSON.parse(texto);
+                //alert(fechac);
+                //alert("fecha: "+registroob.fecha+" foto: "+registroob.foto+" nota: "+registroob.contexto+" audio: "+registroob.audio);
+                //alert("mes: "+registroob.mes);
+                //alert('estoy buscando el menor mes');
+                //var mesobtenido=(registroob.fechafull);
+                //alert(mesobtenido);
+               // alert((parseInt((registroob.fechafull).getMonth())+1).toString());
+                
+                mesmenor=parseInt(registroob.mes);
+                
+                //alert("   "+mesmenor);
+                if (mesmenor<=mesmenori) { 
+                    mesmenori=mesmenor;
+                }
+                //alert(mesmenor);
+        if (mesmenor==1) {
+        document.getElementById("pr").innerHTML = " Primer mes: Enero";
+        document.getElementById("no").innerHTML = " Noveno mes: Septiembre"; 
+        }else if (mesmenor==2){
+        document.getElementById("pr").innerHTML = " Primer mes: Febrero";
+        document.getElementById("no").innerHTML = " Noveno mes: Octubre";     
+        }else if (mesmenor==3){
+        document.getElementById("pr").innerHTML = " Primer mes: Marzo";
+        document.getElementById("no").innerHTML = " Noveno mes: Noviembre";     
+        }else if (mesmenor==4){
+        document.getElementById("pr").innerHTML = " Primer mes: Abril";
+        document.getElementById("no").innerHTML = " Noveno mes: Diciembre";     
+        }else if (mesmenor==5){
+        document.getElementById("pr").innerHTML = " Primer mes: Mayo";
+        document.getElementById("no").innerHTML = " Noveno mes: Enero";     
+        }else if (mesmenor==6){
+        document.getElementById("pr").innerHTML = " Primer mes: Junio";
+        document.getElementById("no").innerHTML = " Noveno mes: Febrero";     
+        }else if (mesmenor==7){
+        document.getElementById("pr").innerHTML = " Primer mes: Julio";
+        document.getElementById("no").innerHTML = " Noveno mes: Marzo";     
+        }else if (mesmenor==8){
+        document.getElementById("pr").innerHTML = " Primer mes: Agosto";
+        document.getElementById("no").innerHTML = " Noveno mes: Abril";     
+        }else if (mesmenor==9){
+        document.getElementById("pr").innerHTML = " Primer mes: Septiembe";
+        document.getElementById("no").innerHTML = " Noveno mes: Mayo";     
+        }else if (mesmenor==10){
+        document.getElementById("pr").innerHTML = " Primer mes: Octubre";
+        document.getElementById("no").innerHTML = " Noveno mes: Junio";     
+        }else if (mesmenor==11){
+        document.getElementById("pr").innerHTML = " Primer mes: Noviembre";
+        document.getElementById("no").innerHTML = " Noveno mes: Julio";     
+        }else if (mesmenor==12){
+        document.getElementById("pr").innerHTML = " Primer mes: Diciembre";
+        document.getElementById("no").innerHTML = " Noveno mes: Agosto";     
+        }
+            
+           
+           
+         }
+         coin=0;
+       }
+       
+       
+}
+         
+// funcion que me lee los datos del usuario ingresado
+
+function lecturapro() {
+      for(var i=0, t=localStorage.length; i < t; i++) {
+        var key = localStorage.key(i);
+         //alert('Para la clave ' + key + ' el valor es: ' + localStorage[key]);
+           for(var ii=0, tt=usernat.length; ii < tt; ii++) {
+             if ((key.charAt(ii))==usernat.charAt(ii)) {
+                //alert('coincidencia '+localStorage.key(i));
+                coin=coin+1;
+             }
+            //alert(coin);
+         }
+         if (coin==usernat.length) {
+           //aqui encontro un registro
+           //coincidencia=coincidencia+1;
+           alert('Para la clave ' + key + ' el valor es: ' + localStorage[key]);
+         }
+         coin=0;
+       }
+}
+     
+     
+     
+             
+//ver registros           
+            // $(document).on("click", "#btnmo", function(evt) 
+            //{
+            //    //var texto=localStorage.getItem("cc_texto");                    
+            //    //var registroob=JSON.parse(registro);
+            //    //alert(fechac);
+            //    //alert("fecha: "+registroob.fecha+" foto: "+registroob.foto+" nota: "+registroob.contexto+" audio: "+registroob.audio);
+            //    lecturapro();
+            //    
+            //   
+            //    
+            //
+            //});                
+            
+            
+//ver registros           
+             $(document).on("click", "#btnver", function(evt) 
+            {
+                   
+                    $(location).attr('href', "#pgmostrarreg");
+                    menormes();
+            });            
+            
+            function cancel(){
+                document.getElementById('entrada').style.display = 'none';
+                document.getElementById('registro').style.display = 'none';
+            }
+//cancelar log/reg             
+             $(document).on("click", "#btncancel", function(evt) 
+            {
+                cancel();
+            });
+             
+             
+//FOTOS             
+             $(document).on("click", "#btnfoto", function(evt) 
+            {
+                navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 20,allowEdit: true, destinationType: navigator.camera.DestinationType.DATA_URL });  
+            });
+             
+               function onPhotoDataSuccess(imageURI) {
+                var $d = new Date();
+                srcfoto="data:image/jpeg;base64," + imageURI;;
+                var photo = document.getElementById('photo');  
+                photo.src = "data:image/jpeg;base64," + imageURI;
+                
+                //alert($d.toUTCString() + imageURI.substr(imageURI.lastIndexOf('/')+1) );
+           
+           }
+           
+           function onFail(message) {
+               alert('Failed because: ' + message);
+           }
+             
+//AUDIOS
+                var path,path2,name;
+            $(document).on("click", "#btnaudio", function(evt)
+            {
+            navigator.device.capture.captureAudio(audioSuccess, audioError, {limit:1});
+            });
+            
+                 function audioSuccess(mediaFiles) 
+                    {
+                        var i,  len, item;
+                        var $d = new Date();
+                        
+                        for (i = 0, len = mediaFiles.length; i < len; i += 1) {
+                            path = mediaFiles[i].fullPath;
+                            path2=path.substr(path.lastIndexOf('/')-44); //este es el src
+                            name= mediaFiles[i].name;
+                            namesong=path.substr(path.lastIndexOf('/')+1);
+                            //alert(namesong);
+                            $("#btnrepaudio").attr("name", path2); 
+                            document.getElementById('btnrepaudio').style.display = 'block';
+                            
+                            var photo = document.getElementById('notasvoz');  
+                            photo.src = "img/audio.jpg";
+                            alert('audio guardado correctamente.');
+                             
+                        }  
+                           
+                    }
+                    
+                    
+                       
+//reproduce audio de prueba                
+                   $(document).on("click", "#btnrepaudio", function(evt)
+                    {
+                      var repro = $(this).attr("name");
+                      my_media = new Media(repro, onSuccessa, onErrora);
+                      my_media.play();
+                    
+                    });
+                    
+                      // capture error callback
+                    var audioError = function(error) {
+                        navigator.notification.alert('Error code: ' + error.code, null, 'Capture Error');
+                    };
+                   
+
+  
+  
+        function onSuccessa() {
+            console.log("playAudio():Audio Success");
+        }
+        
+        function onErrora(error) {
+            alert('code: '    + error.code    + '\n' +
+                  'message: ' + error.message + '\n');
+        }
+        
+            
+            
+
+
+
+  $(document).on("click", "#btnrepaudio2", function(evt)
+                    {
+                      var repro = $(this).attr("name");
+                      my_media = new Media(repro, onSuccessa, onErrora);
+                      my_media.play();
+                    
+                    });
+  
+  //funcion buscar contactos
+  $(document).on("click", "#btncontacto", function(evt)
+                    {
+                        
+                     
+
+
+                        
+                      //var nombre=document.getElementById("nombrepersona").val();
+                      
+                     var options = new ContactFindOptions();
+                    options.filter = "";
+                    options.multiple=true; // obtiene mas de un resultado
+                    //filter = ["displayName", "name"];
+                    filter=["*"]; 
+                    
+                    
+                    //var fields = ["*"]; // el * es para obtener TODOS los campos (displayName, name, etc)
+                    
+                    navigator.contacts.find(filter, onSuccess, onError, options);
+                    
+                    });
+  
+  
+                    function onSuccess(contacts) {
+                    //var nombre=document.getElementById("nombrepersona").val();
+                    var nombrepers = document.getElementById('nombrepersona').value;
+                    nombrepers=nombrepers.toLowerCase();
+                        //alert(contacts.length);
+                        //alert(JSON.stringify(contacts));
+                        var x=0;
+                        //alert(nombrepers);
+                        //alert(contacts[0].name.givenName);
+                      for (var i = 0; i < contacts.length; i++) {
+                          //alert("Nombre: "  + contacts[i].name.formatted  + "\n" + "Given Name: "   + contacts[i].name.givenName  + "\n" );
+                          //alert(contacts[i].name.formatted);
+                          
+                           //var res = str.match(/elas/);
+                           //if (str.match(/ '+nombrepers+' /)) {
+                           // match()
+                           // //code
+                           //}
+                          
+                          
+                          if (nombrepers==(contacts[i].name.givenName).toLowerCase()) {
+                            x=1;
+                            //alert("coincidencia");
+                          }
+                      }
+                      if (x==1) {
+                        alert(nombrepers+" existe en su libreria de contactos!!!");
+                        x=0;
+                      }else{
+                        alert("contacto no existe en su lista")
+                        x=0;
+                      }
+                  };
+                  
+                  function onError(contactError) {
+                      alert('onError!');
+                  };
+                  //  function onSuccess(contacts) {
+                  //    alert('Found ' + contacts.length + ' contacts.');
+                  //    // for (var i = 0; i < contacts.length; i++) {
+                  //    //alert(contacts.displayName);
+                  //    // }
+                  //    //alert(JSON.stringify(contacts));
+                  //    
+                  //    alert(contacts[i].name.familyName);
+                  //    var asd=JSON.stringify(contacts);
+                  //    //alert (asd);
+                  //    //asd=asd.replace('[',"'");
+                  //    //asd=asd.replace(']',"'");
+                  //    //alert(asd);
+                  //    //var remp = str_replace("[", "'", asd);
+                  //    //alert(asd);
+                  //    //var contacto=JSON.parse(asd);
+                  //    //alert(contacto);
+                  //    //alert(contacto.displayName);
+                  //    //if (contacto.displayName) {
+                  //    //  //code      
+                  //    //}
+                  //  
+                  //      //var miValor = ('seccion_1');
+                  //      //miValor=miValor.replace('seccion_',"");
+                  //      //alert(miValor); //dara como resultado 1
+                  //};
+                  //
+                  //function onError(contactError) {
+                  //    alert('onError!');
+                  //};
+  
+  
+  
+
+
+
+  
+  
+
+//funcion inicial nuevo registro
+                function inicioreg(){
+                 var photo = document.getElementById('notasvoz');  
+                 photo.src = "img/mic.gif";
+                 
+                 $('#textofoto').val("");
+                 
+                 photo = document.getElementById('photo');  
+                 photo.src = "img/foto bebe.jpg";
+                 
+                 document.getElementById('btnrepaudio').style.display = 'none';
+                }
+//boton nuevo registro
+            $(document).on("click", "#btnnuevo", function(evt) 
+            {
+                inicioreg();
+            $(location).attr('href', "#pgnuevoregistro");
+            
+            });    
+    
+// aumento de barra l
+
+function incrementobarra() {
+              coincidencia=0;
+              coin=0;
+              for(var i=0, t=localStorage.length; i < t; i++) {
+                            
+                         var key = localStorage.key(i);
+                            for(var ii=0, tt=usernat.length; ii < tt; ii++) {
+                              if ((key.charAt(ii))==usernat.charAt(ii)) {
+                                 //alert('coincidencia '+localStorage.key(i));
+                                 coin=coin+1;
+                              }
+                             //alert(coin);
+                          }
+                          if (coin==usernat.length) {
+                            //aqui encontro un registro
+                            coincidencia=coincidencia+1;
+                          }
+                          coin=0;
+                          
+                          
+                        }
+                    //alert(coincidencia);
+                    coincidencia=coincidencia+1;
+                        //alert(usernat+" "+coincidencia);
+                            if (aum<100) {
+                        aum=coincidencia-1;                                                     // guardar
+                        aums=aum.toString();
+                                        
+                        $("#barra").attr("style", "width: "+aums+"%");                
+                        $("#barra").attr("aria-valuenow", aums);
+                        
+                        $("#barra").html(aums+"%");
+             }
+             
+                         
+   
+}
+       
+//boton login
+            $(document).on("click", "#btnlogin", function(evt) 
+            {
+            document.getElementById('entrada').style.display = 'block';
+            document.getElementById('registro').style.display = 'none';
+            limpiarlogin();
+            });
+//boton registro            
+            $(document).on("click", "#btnreg", function(evt) 
+            {
+            document.getElementById('registro').style.display = 'block';
+            document.getElementById('entrada').style.display = 'none';
+            limpiarlogin();
+            });
+//funcion limpiar datos de entrada            
+            function limpiarlogin(){
+            $('#user').val("");
+            $('#pass').val("");
+            $('#ruser').val("");
+            $('#rpass').val("");
+            }
+            
+//boton entrar            
+            $(document).on("click", "#btnentrar", function(evt) 
+            {
+                user = document.getElementById('user').value;
+                pass=document.getElementById('pass').value;
+                usernat=user;
+                user="uu"+user;
+                var x=0;
+                for(var i=0, t=localStorage.length; i < t; i++) {
+                key = localStorage.key(i);
+                if ((user==key)&&(pass==localStorage[key])) {
+                 x=1;
+                }
+                }
+                if (x==1) {
+                alert('bienvenida: '+usernat);
+                //  $("#entra").attr("href", "#pgmenu");
+                
+                
+                incrementobarra();
+                $("#lista1mes").empty();
+                limpiarlogin();
+                x=0; 
+               }else{
+                alert('datos incorrectos');
+                //$("#entra").attr("href", "#");
+                x=0;
+              }
+            }); 
+//boton registrar                    
+            $(document).on("click", "#btnregistrar", function(evt) 
+            {
+                
+                user = document.getElementById("ruser").value;
+                pass=document.getElementById("rpass").value;
+                usernat=user;
+                user="uu"+user;
+                
+                
+                var x=0;
+                for(var i=0, t=localStorage.length; i < t; i++) {
+                key = localStorage.key(i);
+                if (user==key) {
+                 x=1;
+                }
+                }
+                if (x==1) {
+                
+                alert(usernat+" ya esta registrada")
+                incrementobarra();
+                $("#lista1mes").empty();
+                limpiarlogin()
+                x=0; 
+               }else{
+                        if ((user=="")||(pass=="")) {
+                        alert('ingrese todos los datos porfavor');
+                      }else{
+                      usuarios=usuarios+1;
+                      //var numero=usuarios.toString();
+                      user="uu"+user;
+                      window.localStorage.setItem(user, pass);
+                      alert('usuario: '+ usernat +' guardada con exito, bienvenida');
+                      $(location).attr('href', "#pgprincipal");
+                      incrementobarra();
+                      $("#lista1mes").empty();
+                      limpiarlogin()
+                      //alert(usuarios);
+                      }
+                x=0;
+              }
+              
+              
+             
+
+            });
+            
+        
+            
+            
+//funcion cargar todo            
+            function cargartodo(){ 
+                //localStorage.clear();
+                usuarios=0;
+            for(var i=0, t=localStorage.length; i < t; i++) {
+                var key = localStorage.key(i);
+                var dato= localStorage[key];
+                
+               
+                if (key.charAt(0)=='u') {
+                    //alert('usuario encontrado');
+                    usuarios=usuarios+1;
+ 
+                }
+                
+  
+            }
+            $(location).attr('href', "#login");
+            alert(usuarios+" usuarios registrados! unete");
+            
+        }
+        
+        
+
+        
+        
+            
+        </script>
+    </body>
+</html> 
